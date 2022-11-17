@@ -7,6 +7,7 @@ import Netflix.*;
 public class NetflixList {
     private Film[][] movies;
     private Film[][] shows;
+    private Film[][] anime;
     private String strUser;
     
     public String getFilmType(){
