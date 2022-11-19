@@ -10,8 +10,8 @@ public class NetflixList {
     private Film[][] anime;
     private String strUser;
     
-    public String getFilmType(){
-        return "";
+    public NetflixList(){
+        
     }
 
 }
