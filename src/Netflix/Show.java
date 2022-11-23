@@ -18,8 +18,4 @@ public class Show extends Film{
     public int getEpisodeNum(){
         return episodeNum;
     }
-
-    public String toString(){
-        return getName();
-    }
 }

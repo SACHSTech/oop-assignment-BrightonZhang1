@@ -36,5 +36,9 @@ public abstract class Film {
         return dblRating;
     }
 
+    public String toString(){
+        return getName();
+    }
+
     //public abstract 
 }
