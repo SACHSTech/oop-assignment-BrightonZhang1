@@ -10,5 +10,6 @@ public class Main {
         // Initializing list
         NetflixList newNetflixList = new NetflixList();
         // test: newNetflixList.Interstellar.getMovieLength();
+        newNetflixList.getFilms();
     }
 }

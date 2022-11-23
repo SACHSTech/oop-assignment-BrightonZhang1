@@ -7,7 +7,6 @@ import Netflix.*;
 public class NetflixList {
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
     private ArrayList<Show> showList = new ArrayList<Show>();
-    private ArrayList<Anime> animeList = new ArrayList<Anime>();
 
     // Setting movie objects
     Movie AvengersEndgame = new Movie("Avengers: Endgame", "Movie", "Action, Adventure, Superhero", "2019", "Anthony Russo", 8.4, 182);
@@ -23,17 +22,32 @@ public class NetflixList {
     Show BlackMirror = new Show("Black Mirror", "TV Show", "Mystery, Drama, Sci-Fi", "2011", "Charlie Brooker", 8.8, 60, 22);
     Show StrangerThings = new Show("Stranger Things", "TV Show", "Drama, Horror, Fantasy", "2016", "Matt Duffer", 8.7, 51, 34);
 
-    // Setting anime objects
-    Anime AttackOnTitan = new Show("Attack on Titan", "Anime", )
-
-    // Adds movies to a list that can displayed
+    
+    // Adds movies and shows to a list that can displayed
     public NetflixList(){
         movieList.add(AvengersEndgame);
         movieList.add(Smile);
         movieList.add(Interstellar);
         movieList.add(HomeAlone);
         movieList.add(Inception);
+
+        showList.add(BreakingBad);
+        showList.add(Arcane);
+        showList.add(Friends);
+        showList.add(BlackMirror);
+        showList.add(StrangerThings);
     }
 
-    
+    public void getFilms(){
+        System.out.println("--Movies--");
+        for(int i = 0; i < movieList.size(); i++){
+            System.out.println(movieList.get(i));
+        }
+        System.out.println();
+
+        System.out.println("--Shows--");
+        for(int i = 0; i < showList.size(); i++){
+            System.out.println(showList.get(i));
+        }
+    }
 }

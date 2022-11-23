@@ -11,4 +11,8 @@ public class Movie extends Film {
     public String getMovieLength(){
         return (movieLength / 60) + "h " + movieLength % 60 + "m";
     }
+
+    public String toString(){
+        return getName();
+    }
 }
