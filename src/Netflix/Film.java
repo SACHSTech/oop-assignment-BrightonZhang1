@@ -7,7 +7,7 @@ public abstract class Film {
     private String strDate;
     private Double dblRating;
 
-    public Film(String filmName, String filmGenre, String filmDate, 
+    public Film(String filmName, String filmType, String filmGenre, String filmDate,
     String filmDirector, Double filmRating){
         strName = filmName;
         strGenre = filmGenre; 
