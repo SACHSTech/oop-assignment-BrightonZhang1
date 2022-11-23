@@ -50,4 +50,12 @@ public class NetflixList {
             System.out.println(showList.get(i));
         }
     }
+
+    public Movie getMovie(int i){
+        return movieList.get(i);
+    }
+
+    public Show getShow(int i){
+        return showList.get(i);
+    }
 }

@@ -21,8 +21,10 @@ public class Main {
 
         while(blnBrowsing){
             newNetflixList.getFilms();
+            System.out.println();
 
             System.out.println("What would you like to do?");
+            sc.nextLine();
         }
 
         sc.close();
