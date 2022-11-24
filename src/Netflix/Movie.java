@@ -1,15 +1,17 @@
 package Netflix;
+import java.util.Scanner;
 
 public class Movie extends Film {
-    private int movieLength;
+    private int intMovieLength;
+    private double dblUserRating;
 
     public Movie(String filmName, String filmType, String filmGenre, String filmDate, String filmDirector, Double filmRating, int filmMovieLength) {
         super(filmName, filmType, filmGenre, filmDate, filmDirector, filmRating);
-        movieLength = filmMovieLength;
+        intMovieLength = filmMovieLength;
     }
     
     public String getMovieLength(){
-        return (movieLength / 60) + "h " + movieLength % 60 + "m";
+        return (intMovieLength / 60) + "h " + intMovieLength % 60 + "m";
     }
 
     // displays show info
@@ -17,5 +19,15 @@ public class Movie extends Film {
         System.out.println("Name: " + getName());
         System.out.println("Type of Film: " + getType());
         return "";
+    }
+
+    public void setRating(){
+        Scanner sc = new Scanner(System.in);        
+        dblUserRating = (sc.nextDouble());
+        sc.close();
+    }
+
+    public void displayInfo(){
+        System.out.println();
     }
 }
