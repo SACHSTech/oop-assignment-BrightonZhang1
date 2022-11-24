@@ -11,4 +11,11 @@ public class Movie extends Film {
     public String getMovieLength(){
         return (movieLength / 60) + "h " + movieLength % 60 + "m";
     }
+
+    // displays show info
+    public String toString(){
+        System.out.println("Name: " + getName());
+        System.out.println("Type of Film: " + getType());
+        return "";
+    }
 }
