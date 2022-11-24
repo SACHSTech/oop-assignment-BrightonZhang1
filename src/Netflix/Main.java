@@ -17,6 +17,7 @@ public class Main {
         // test: newNetflixList.Interstellar.getMovieLength();
 
         System.out.println("Welcome to netflix list! Please state your name:");
+        newNetflixList.Interstellar.setRating();
         strUser = sc.nextLine();
         System.out.println("Hi there " + strUser + "! Here are your shows for today.");
 
@@ -25,13 +26,16 @@ public class Main {
             System.out.println();
 
             System.out.println("What would you like to do?");
-            System.out.println("1. Browse films (Film details)\n2. Customize Lists\n3. Exit");
+            System.out.println("1. Browse films (Film details)\n2. Customize Lists\n3. Ratings\n4. Exit");
 
             switch(sc.nextLine()){
                 case "1":
                     System.out.println("Which show would you like to browse? (Type the name of the show)");
                     strShow = sc.nextLine();
-                    System.out.println(newNetflixList);
+                    
+                    if(strShow.equalsIgnoreCase("home alone")){
+                        System.out.println(newNetflixList.HomeAlone);
+                    }
             }
         }
 

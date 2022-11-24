@@ -46,5 +46,5 @@ public abstract class Film {
         return getName();
     }
 
-    //public abstract 
+    public abstract void setRating();
 }

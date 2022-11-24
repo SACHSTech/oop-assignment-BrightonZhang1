@@ -41,7 +41,7 @@ public class NetflixList {
     public void getFilms(){
         System.out.println("--Movies--");
         for(int i = 0; i < movieList.size(); i++){
-            System.out.println(movieList.get(i));
+            System.out.println((i + 1) + ". " + movieList.get(i));
         }
         System.out.println();
 
