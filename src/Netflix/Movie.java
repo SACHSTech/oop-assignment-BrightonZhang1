@@ -14,20 +14,23 @@ public class Movie extends Film {
         return (intMovieLength / 60) + "h " + intMovieLength % 60 + "m";
     }
 
-    // displays show info
+    // displays movie info
     public String toString(){
+        System.out.println("---------------------------------------");
         System.out.println("Name: " + getName());
         System.out.println("Type of Film: " + getType());
+        System.out.println("Genre: " + getGenre());
+        System.out.println("Release Date: " + getPublishDate());
+        System.out.println("Director: " + getDirector());
+        System.out.println("IMDB Rating: " + getRating());
+        System.out.println("Length: " + getMovieLength());
+        System.out.println("---------------------------------------");
         return "";
     }
 
-    public void setRating(){
+    public void setUserRating(){
         Scanner sc = new Scanner(System.in);        
         dblUserRating = (sc.nextDouble());
         sc.close();
-    }
-
-    public void displayInfo(){
-        System.out.println();
     }
 }
