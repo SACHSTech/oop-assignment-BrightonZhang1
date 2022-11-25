@@ -15,6 +15,8 @@ public class Main {
         boolean blnMenu = true;
         boolean blnList = false;
         ArrayList<String> filmList = new ArrayList<String>();
+        ArrayList<String> genreList = new ArrayList<String>();
+        ArrayList<Film> objFilmList = new ArrayList<Film>();
 
         // Initializing list
         NetflixList newNetflixList = new NetflixList();
@@ -89,9 +91,11 @@ public class Main {
                                 sc.nextLine();
                                 if(intFilm < 6){
                                     filmList.set(intSlot - 1, newNetflixList.getMovie(intFilm - 1).getName());
+                                    objFilmList.set(intSlot - 1, newNetflixList.getMovie(intFilm - 1));
                                 }
                                 else if(intFilm > 5 && intFilm < 11){
                                     filmList.set(intSlot - 1, newNetflixList.getShow(intFilm - 6).getName());
+                                    objFilmList.set(intSlot - 1, newNetflixList.getShow(intFilm - 6));
                                 }      
                                 break;
                             }
@@ -106,9 +110,11 @@ public class Main {
                         sc.nextLine();   
                         if(intFilm < 6){
                             filmList.add(newNetflixList.getMovie(intFilm - 1).getName());  
+                            objFilmList.add(newNetflixList.getMovie(intFilm - 1));  
                         }
                         else if(intFilm > 5 && intFilm < 11){
                             filmList.add(newNetflixList.getShow(intFilm - 6).getName());  
+                            objFilmList.add(newNetflixList.getShow(intFilm - 6));  
                         }      
                         else if(intFilm == 11){
                             break;
@@ -119,8 +125,23 @@ public class Main {
                     }
                     break;
                 case "3":
-                    System.out.println("Based on your list, here are some recommendations: ");
-                    if(filmList.contains(newNetflixList.Interstellar.getGenre()));
+                System.out.println("Based on your list, here are some recommendations: ");
+
+                    // adds movie genres from user list to genreList
+                    for(int i = 0; i < 5; i++){
+                        genreList.add(newNetflixList.getMovie(i).getGenre());
+                    }
+
+                    // adds show genres from user list to genreList
+                    for(int i = 0; i < 5; i++){
+                        genreList.add(newNetflixList.getShow(i).getGenre());
+                    }  
+                    
+                    // checks for genre and prints recommendation
+                    for(int i = 0; i < filmList.size(); i++){
+                        if(newNetflixList.getMovie(i).getName()){
+                        }
+                    }
                 case "4":
                     blnMenu = false;
             }
