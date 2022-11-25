@@ -1,9 +1,8 @@
 package Netflix;
-import java.util.Scanner;
 
 public class Movie extends Film {
     private int intMovieLength;
-    private double dblUserRating;
+    private boolean blnFavourite;
 
     public Movie(String filmName, String filmType, String filmGenre, String filmDate, String filmDirector, Double filmRating, int filmMovieLength) {
         super(filmName, filmType, filmGenre, filmDate, filmDirector, filmRating);
@@ -17,6 +16,9 @@ public class Movie extends Film {
     // displays movie info
     public String toString(){
         System.out.println("---------------------------------------");
+        if(blnFavourite){
+            System.out.println("FAVOURITE");
+        }
         System.out.println("Name: " + getName());
         System.out.println("Type of Film: " + getType());
         System.out.println("Genre: " + getGenre());
@@ -28,9 +30,7 @@ public class Movie extends Film {
         return "";
     }
 
-    public void setUserRating(){
-        Scanner sc = new Scanner(System.in);        
-        dblUserRating = (sc.nextDouble());
-        sc.close();
+    public void setFavourite(){
+        blnFavourite = true;
     }
 }

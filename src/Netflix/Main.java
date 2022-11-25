@@ -16,11 +16,8 @@ public class Main {
         boolean blnList = false;
         ArrayList<String> filmList = new ArrayList<String>();
 
-
         // Initializing list
         NetflixList newNetflixList = new NetflixList();
-        // test: newNetflixList.Interstellar.getMovieLength();
-        // newNetflixList.Interstellar.setRating(); changes user rating
 
         System.out.println("Welcome to netflix list! Please state your name:");
         strUser = sc.nextLine();
@@ -31,7 +28,7 @@ public class Main {
             newNetflixList.getFilms();
             System.out.println();
             System.out.println("What would you like to do?");
-            System.out.println("1. Browse films (Film details)\n2. Customize Lists\n3. Ratings\n4. Exit");
+            System.out.println("1. Browse films (Film details)\n2. Customize Lists\n3. Recommendations\n4. Exit");
             System.out.println();
             
             strChoice = sc.nextLine();
@@ -39,6 +36,7 @@ public class Main {
                 case "1":
                     System.out.println("Which show would you like to browse? (Type the number of the film): ");
                     intFilm = sc.nextInt();
+                    sc.nextLine();
                     System.out.println();
                     if(intFilm < 6){
                         System.out.println(newNetflixList.getMovie(intFilm - 1));
@@ -46,9 +44,15 @@ public class Main {
                     else if(intFilm > 5){
                         System.out.println(newNetflixList.getShow(intFilm - 6));
                     }
-                    sc.nextLine();
-                    System.out.println("Type something to continue");
-                    sc.nextLine();
+                    System.out.println("Type 'favourite' if you would like to favourite or unfavourite this show.\nType anything else to continue");
+                    if(sc.nextLine().equalsIgnoreCase("favourite")){
+                        if(intFilm < 6 ){
+                            newNetflixList.getMovie(intFilm - 1).setFavourite();
+                        }
+                        else if(intFilm > 5 && intFilm < 11){
+                            newNetflixList.getShow(intFilm - 6).setFavourite();
+                        }
+                    }
                     break;
                 case "2":
                     System.out.println();
@@ -67,22 +71,33 @@ public class Main {
 
                     // makes sure that second loop doesnt automatically open the list
                     blnList = false;
+                    strChoice = sc.nextLine();
 
-                    if(sc.nextLine().equalsIgnoreCase("yes") && filmList.size() <= 10){
+                    if(strChoice.equalsIgnoreCase("yes") && filmList.size() <= 10){
                         System.out.println("What show would you like to add? (Type the number of the film)");
                         System.out.println("Type '11' to stop adding films");
                         blnList = true;
                     }
-                    else if(sc.nextLine().equalsIgnoreCase("yes") && filmList.size() > 10){
-                        System.out.println("Your list is full! Which slot would you like to replace: ");
-                        intSlot = sc.nextInt();
-                        sc.nextLine();
-                        if(intSlot <= 10 && intSlot > 0){
-                            System.out.println("What show would you like to replace with? (Type the number of the film)");
-                            
-                        }
-                        else{
-
+                    else if(strChoice.equalsIgnoreCase("yes") && filmList.size() > 10){
+                        while(true){
+                            System.out.println("Your list is full! Which slot would you like to replace: ");
+                            intSlot = sc.nextInt();
+                            sc.nextLine();
+                            if(intSlot <= 10 && intSlot > 0){
+                                System.out.println("What show would you like to replace with? (Type the number of the film)");
+                                intFilm = sc.nextInt();
+                                sc.nextLine();
+                                if(intFilm < 6){
+                                    filmList.set(intSlot - 1, newNetflixList.getMovie(intFilm - 1).getName());
+                                }
+                                else if(intFilm > 5 && intFilm < 11){
+                                    filmList.set(intSlot - 1, newNetflixList.getShow(intFilm - 6).getName());
+                                }      
+                                break;
+                            }
+                            else{
+                                System.out.println("Type a real option!");
+                            }
                         }
                     }
 
@@ -103,6 +118,11 @@ public class Main {
                         }
                     }
                     break;
+                case "3":
+                    System.out.println("Based on your list, here are some recommendations: ");
+                    if(filmList.contains(newNetflixList.Interstellar.getGenre()));
+                case "4":
+                    blnMenu = false;
             }
         }
         sc.close();
