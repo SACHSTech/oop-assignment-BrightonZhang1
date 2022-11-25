@@ -1,8 +1,6 @@
 package Netflix;
 
-import java.io.*;
 import java.util.ArrayList;
-import Netflix.*;
 
 public class NetflixList {
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
@@ -41,13 +39,13 @@ public class NetflixList {
     public void getFilms(){
         System.out.println("--Movies--");
         for(int i = 0; i < movieList.size(); i++){
-            System.out.println((i + 1) + ". " + movieList.get(i));
+            System.out.println((i + 1) + ". " + movieList.get(i).getName());
         }
         System.out.println();
 
         System.out.println("--Shows--");
         for(int i = 0; i < showList.size(); i++){
-            System.out.println(showList.get(i));
+            System.out.println((i + 6) + ". " + showList.get(i).getName());
         }
     }
 
