@@ -13,7 +13,8 @@ public class Main {
         int intFilm;
         int intSlot;
         int intCounter;
-        boolean blnSuperHero = true;
+        boolean blnSuperHero, blnCrime , blnAdventure, blnComedy, blnSciFi, blnDrama, blnHorror;
+        
         
         boolean blnMenu = true;
         boolean blnList = false;
@@ -39,7 +40,7 @@ public class Main {
             strChoice = sc.nextLine();
             switch(strChoice){
                 case "1":
-                    System.out.println("Which show would you like to browse? (Type the number of the film): ");
+                    System.out.println("Which film would you like to browse? (Type the number of the film): ");
                     intFilm = sc.nextInt();
                     sc.nextLine();
                     System.out.println();
@@ -49,7 +50,7 @@ public class Main {
                     else if(intFilm > 5){
                         System.out.println(newNetflixList.getShow(intFilm - 6));
                     }
-                    System.out.println("Type 'favourite' if you would like to favourite or unfavourite this show.\nType anything else to continue");
+                    System.out.println("Type 'favourite' if you would like to favourite this film.\nType anything else to continue");
                     if(sc.nextLine().equalsIgnoreCase("favourite")){
                         if(intFilm < 6 ){
                             newNetflixList.getMovie(intFilm - 1).setFavourite();
@@ -79,7 +80,7 @@ public class Main {
                     strChoice = sc.nextLine();
 
                     if(strChoice.equalsIgnoreCase("yes") && filmList.size() <= 10){
-                        System.out.println("What show would you like to add? (Type the number of the film)");
+                        System.out.println("What film would you like to add? (Type the number of the film)");
                         System.out.println("Type '11' to stop adding films");
                         blnList = true;
                     }
@@ -89,7 +90,7 @@ public class Main {
                             intSlot = sc.nextInt();
                             sc.nextLine();
                             if(intSlot <= 10 && intSlot > 0){
-                                System.out.println("What show would you like to replace with? (Type the number of the film)");
+                                System.out.println("What film would you like to replace with? (Type the number of the film)");
                                 intFilm = sc.nextInt();
                                 sc.nextLine();
                                 if(intFilm < 6){
@@ -129,36 +130,70 @@ public class Main {
                     break;
                 case "3":
                 System.out.println("Based on your list, here are some recommendations: ");
+                System.out.println();
 
-                    // adds movie genres from user list to genreList
-                    for(int i = 0; i < 5; i++){
-                        genreList.add(newNetflixList.getMovie(i).getGenre());
+                // makes sure recommendations don't repeat
+                blnSuperHero = false;
+                blnCrime = false;
+                blnAdventure = false;
+                blnComedy = false;
+                blnDrama = false;
+                blnHorror = false;
+                blnSciFi = false;
+
+                    // adds genres from user list to genreList
+                    for(int i = 0; i < objFilmList.size(); i++){
+                        genreList.add(objFilmList.get(i).getGenre());
                     }
 
-                    // adds show genres from user list to genreList
-                    for(int i = 0; i < 5; i++){
-                        genreList.add(newNetflixList.getShow(i).getGenre());
-                    }  
-                    
-                    // checks for genre and prints recommendation
                     intCounter = 1;
                     for(int i = 0; i < genreList.size(); i++){
-                        System.out.println(genreList.get(i));
-                        if(genreList.get(i).contains("Superhero") && blnSuperHero){
+                        if(genreList.get(i).contains("Superhero") && !blnSuperHero){
                             System.out.println(intCounter + ". Spider-Man: No Way Home");
-                            blnSuperHero = false;
+                            blnSuperHero = true;
+                            intCounter++;
                         }
 
-                        if(genreList.get(i).contains("Crime") && blnSuperHero){
+                        if(genreList.get(i).contains("Crime") && !blnCrime){
                             System.out.println(intCounter + ". Prison Break");
-                            blnSuperHero = false;
+                            blnCrime = true;
+                            intCounter++;
                         }
 
-                        if(genreList.get(i).contains("Action") && blnSuperHero){
-                            System.out.println(intCounter + ". Prison Break");
-                            blnSuperHero = false;
+                        if(genreList.get(i).contains("Adventure") && !blnAdventure){
+                            System.out.println(intCounter + ". Game of Thrones");
+                            blnAdventure = true;
+                            intCounter++;
+                        }
+
+                        if(genreList.get(i).contains("Comedy") && !blnComedy){
+                            System.out.println(intCounter + ". 21 Jump Street");
+                            blnComedy = true;
+                            intCounter++;
+                        }
+
+                        if(genreList.get(i).contains("Drama") && !blnDrama){
+                            System.out.println(intCounter + ". The Shawshank Redemption");
+                            blnDrama = true;
+                            intCounter++;
+                        }
+
+                        if(genreList.get(i).contains("Horror") && !blnHorror){
+                            System.out.println(intCounter + ". The Walking Dead");
+                            blnHorror = true;
+                            intCounter++;
+                        }
+
+                        if(genreList.get(i).contains("Sci-Fi") && !blnSciFi){
+                            System.out.println(intCounter + ". Star Wars");
+                            blnSciFi = true;
+                            intCounter++;
                         }
                     }
+                    System.out.println("Type any key to continue: ");
+                    System.out.println();
+                    sc.nextLine();
+                    System.out.println();
                     break;
                 case "4":
                     blnMenu = false;
