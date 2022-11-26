@@ -155,17 +155,17 @@ public class Main {
                     break;
 
                 case "3":
-                System.out.println("Based on your list, here are some recommendations: ");
-                System.out.println();
+                    System.out.println("Based on your list, here are some recommendations: ");
+                    System.out.println();
 
-                // Booleans used to make sure recommendations don't repeat
-                blnSuperHero = false;
-                blnCrime = false;
-                blnAdventure = false;
-                blnComedy = false;
-                blnDrama = false;
-                blnHorror = false;
-                blnSciFi = false;
+                    // Booleans used to make sure recommendations don't repeat
+                    blnSuperHero = false;
+                    blnCrime = false;
+                    blnAdventure = false;
+                    blnComedy = false;
+                    blnDrama = false;
+                    blnHorror = false;
+                    blnSciFi = false;
 
                     // Adds genres from user list to genreList
                     for(int i = 0; i < objFilmList.size(); i++){
@@ -226,6 +226,7 @@ public class Main {
                     sc.nextLine();
                     System.out.println();
                     break;
+                    
                 case "4":
                     // Exits the program
                     blnMenu = false;
