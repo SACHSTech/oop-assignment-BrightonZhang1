@@ -9,8 +9,8 @@ package Netflix;
 public class Show extends Film{
     
     // Instance variables
-    private int episodeLength;
-    private int episodeNum;
+    private int intEpisodeLength;
+    private int intEpisodeNum;
     private boolean blnFavourite;
 
     /**
@@ -27,8 +27,8 @@ public class Show extends Film{
      */
     public Show(String filmName, String filmType, String filmGenre, String filmDate, String filmDirector, Double filmRating, int showEpisodeLength, int showEpisodeNum) {
         super(filmName, filmType, filmGenre, filmDate, filmDirector, filmRating);
-        episodeLength = showEpisodeLength;
-        episodeNum = showEpisodeNum;
+        intEpisodeLength = showEpisodeLength;
+        intEpisodeNum = showEpisodeNum;
     }
 
     /**
@@ -36,7 +36,7 @@ public class Show extends Film{
      * @return length of episodes
      */
     public int getEpisodeLength(){
-        return episodeLength;
+        return intEpisodeLength;
     }
 
     /**
@@ -44,7 +44,7 @@ public class Show extends Film{
      * @return number of episodes
      */
     public int getEpisodeNum(){
-        return episodeNum;
+        return intEpisodeNum;
     }
 
     /**
