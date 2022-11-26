@@ -13,7 +13,11 @@ public class Movie extends Film {
         return (intMovieLength / 60) + "h " + intMovieLength % 60 + "m";
     }
 
-    // displays movie info
+    /*
+     * Prints the details of the film
+     * 
+     * @return release date of film
+     */
     public String toString(){
         System.out.println("---------------------------------------");
         if(blnFavourite){

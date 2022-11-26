@@ -2,7 +2,14 @@ package Netflix;
 
 import java.util.ArrayList;
 
+/**
+ * Netflix list class file
+ * @author: Brighton Zhang
+ */
+
 public class NetflixList {
+
+    // Instance variables
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
     private ArrayList<Show> showList = new ArrayList<Show>();
 
@@ -21,8 +28,12 @@ public class NetflixList {
     Show StrangerThings = new Show("Stranger Things", "TV Show", "Drama, Horror, Fantasy", "2016", "Matt Duffer", 8.7, 51, 34);
 
     
-    // Adds movies and shows to a list that can displayed
+    /**
+     * Netflix List constructor
+     */
     public NetflixList(){
+        
+        // Adds movies and shows to lists
         movieList.add(AvengersEndgame);
         movieList.add(Smile);
         movieList.add(Interstellar);
@@ -36,6 +47,9 @@ public class NetflixList {
         showList.add(StrangerThings);
     }
 
+    /**
+     * Method displays all movies and shows for user
+     */
     public void getFilms(){
         System.out.println("--Movies--");
         for(int i = 0; i < movieList.size(); i++){
@@ -49,10 +63,22 @@ public class NetflixList {
         }
     }
 
+    /**
+     * Method to get movie from the movie list
+     * 
+     * @param i used to indicate movie number
+     * @return the user's desired movie
+     */
     public Movie getMovie(int i){
         return movieList.get(i);
     }
 
+    /**
+     * Method to get show from the show list
+     * 
+     * @param i used to indicate show number
+     * @return the user's desired show
+     */
     public Show getShow(int i){
         return showList.get(i);
     }
