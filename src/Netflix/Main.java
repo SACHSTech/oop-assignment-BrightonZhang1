@@ -12,6 +12,9 @@ public class Main {
         String strChoice;
         int intFilm;
         int intSlot;
+        int intCounter;
+        boolean blnSuperHero = true;
+        
         boolean blnMenu = true;
         boolean blnList = false;
         ArrayList<String> filmList = new ArrayList<String>();
@@ -138,10 +141,25 @@ public class Main {
                     }  
                     
                     // checks for genre and prints recommendation
-                    for(int i = 0; i < filmList.size(); i++){
-                        if(newNetflixList.getMovie(i).getName()){
+                    intCounter = 1;
+                    for(int i = 0; i < genreList.size(); i++){
+                        System.out.println(genreList.get(i));
+                        if(genreList.get(i).contains("Superhero") && blnSuperHero){
+                            System.out.println(intCounter + ". Spider-Man: No Way Home");
+                            blnSuperHero = false;
+                        }
+
+                        if(genreList.get(i).contains("Crime") && blnSuperHero){
+                            System.out.println(intCounter + ". Prison Break");
+                            blnSuperHero = false;
+                        }
+
+                        if(genreList.get(i).contains("Action") && blnSuperHero){
+                            System.out.println(intCounter + ". Prison Break");
+                            blnSuperHero = false;
                         }
                     }
+                    break;
                 case "4":
                     blnMenu = false;
             }
