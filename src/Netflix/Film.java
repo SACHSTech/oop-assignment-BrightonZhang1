@@ -16,7 +16,7 @@ public abstract class Film {
     private Double dblRating;
 
     /**
-     * Counstructor for Films
+     * Constructor for Films
      * @param filmName - name of film
      * @param filmType - type of film (movie or show)
      * @param filmGenre - genre of gilm

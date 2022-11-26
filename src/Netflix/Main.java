@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Main {
     static BufferedReader keyboard;
     public static void main (String[] args) throws IOException {
+        
         // Variable and object instantiation
         String strUser;
         String strChoice;
@@ -176,6 +177,8 @@ public class Main {
 
                     // For loop used to check all genres of films in user list and assigns a recommendation
                     for(int i = 0; i < genreList.size(); i++){
+
+                        // If statements check to see if the films in the user list contain a specific genre
                         if(genreList.get(i).contains("Superhero") && !blnSuperHero){
                             System.out.println(intCounter + ". Spider-Man: No Way Home");
                             blnSuperHero = true;

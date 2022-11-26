@@ -1,22 +1,45 @@
 package Netflix;
 
+/**
+ * Show class file / extends abstract Film class
+ * @author: Brighton Zhang
+ * 
+ */
+
 public class Movie extends Film {
+
+    // Instance variables
     private int intMovieLength;
     private boolean blnFavourite;
 
+    /**
+     * Movie constructor method
+     * @param filmName
+     * @param filmType
+     * @param filmGenre
+     * @param filmDate
+     * @param filmDirector
+     * @param filmRating
+     * @param filmMovieLength
+     */
     public Movie(String filmName, String filmType, String filmGenre, String filmDate, String filmDirector, Double filmRating, int filmMovieLength) {
         super(filmName, filmType, filmGenre, filmDate, filmDirector, filmRating);
         intMovieLength = filmMovieLength;
     }
     
+    /**
+     * Returns the movie length in terms of hours and minutes
+     * 
+     * @return movie length
+     */
     public String getMovieLength(){
         return (intMovieLength / 60) + "h " + intMovieLength % 60 + "m";
     }
 
     /*
-     * Prints the details of the film
+     * Prints out details of the selected movie
      * 
-     * @return release date of film
+     * @return details of the specified movie
      */
     public String toString(){
         System.out.println("---------------------------------------");
@@ -34,6 +57,9 @@ public class Movie extends Film {
         return "";
     }
 
+    /**
+     * Setter method sets blnFavourite as true;
+     */
     public void setFavourite(){
         blnFavourite = true;
     }
