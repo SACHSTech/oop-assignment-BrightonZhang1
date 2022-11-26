@@ -4,6 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main Class File
+ * @author: Brighton Zhang
+ */
+
 public class Main {
     static BufferedReader keyboard;
     public static void main (String[] args) throws IOException {
