@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Main {
     static BufferedReader keyboard;
     public static void main (String[] args) throws IOException {
-        
+
         // Variable and object instantiation
         String strUser;
         String strChoice;
