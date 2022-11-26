@@ -7,17 +7,16 @@ import java.util.Scanner;
 public class Main {
     static BufferedReader keyboard;
     public static void main (String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);        
+        // Variable and object instantiation
         String strUser;
         String strChoice;
         int intFilm;
         int intSlot;
         int intCounter;
         boolean blnSuperHero, blnCrime , blnAdventure, blnComedy, blnSciFi, blnDrama, blnHorror;
-        
-        
         boolean blnMenu = true;
         boolean blnList = false;
+        Scanner sc = new Scanner(System.in);        
         ArrayList<String> filmList = new ArrayList<String>();
         ArrayList<String> genreList = new ArrayList<String>();
         ArrayList<Film> objFilmList = new ArrayList<Film>();
@@ -30,7 +29,10 @@ public class Main {
         System.out.println("Hi there " + strUser + "! Here are your shows for today.");
         System.out.println();
 
+        // Main loop
         while(blnMenu){
+
+            // Displays films
             newNetflixList.getFilms();
             System.out.println();
             System.out.println("What would you like to do?");
@@ -44,12 +46,16 @@ public class Main {
                     intFilm = sc.nextInt();
                     sc.nextLine();
                     System.out.println();
+
+                    // Gets movies and shows to display
                     if(intFilm < 6){
                         System.out.println(newNetflixList.getMovie(intFilm - 1));
                     }
                     else if(intFilm > 5){
                         System.out.println(newNetflixList.getShow(intFilm - 6));
                     }
+
+                    // Uses setter method to set film as "favourite"
                     System.out.println("Type 'favourite' if you would like to favourite this film.\nType anything else to continue");
                     if(sc.nextLine().equalsIgnoreCase("favourite")){
                         if(intFilm < 6 ){
@@ -60,9 +66,12 @@ public class Main {
                         }
                     }
                     break;
+
                 case "2":
                     System.out.println();
                     System.out.println("Here is your list so far: ");
+
+                    // Displays all films in the user's list
                     for(int i = 0; i < 10; i++){
                         if((i + 1) <= filmList.size()){
                             System.out.println("[" + filmList.get(i) + "]");
@@ -71,11 +80,12 @@ public class Main {
                             System.out.println("[EMPTY]");
                         }
                     }
+
                     System.out.println("\nType any key to continue...");
                     sc.nextLine();
                     System.out.println("Would you like to add to your list? Yes/No");
 
-                    // makes sure that second loop doesnt automatically open the list
+                    // Makes sure that second loop doesnt automatically open the list
                     blnList = false;
                     strChoice = sc.nextLine();
 
@@ -84,15 +94,21 @@ public class Main {
                         System.out.println("Type '11' to stop adding films");
                         blnList = true;
                     }
+
+                    // This occurs when the user's list is full
                     else if(strChoice.equalsIgnoreCase("yes") && filmList.size() > 10){
                         while(true){
                             System.out.println("Your list is full! Which slot would you like to replace: ");
                             intSlot = sc.nextInt();
                             sc.nextLine();
+
+                            // Sets the user's selected slot on their list with a show the user wants
                             if(intSlot <= 10 && intSlot > 0){
                                 System.out.println("What film would you like to replace with? (Type the number of the film)");
                                 intFilm = sc.nextInt();
                                 sc.nextLine();
+
+                                // Sets films for both the object and string array
                                 if(intFilm < 6){
                                     filmList.set(intSlot - 1, newNetflixList.getMovie(intFilm - 1).getName());
                                     objFilmList.set(intSlot - 1, newNetflixList.getMovie(intFilm - 1));
@@ -109,9 +125,12 @@ public class Main {
                         }
                     }
 
+                    // Loops until user decides to exit
                     while(blnList){     
                         intFilm = sc.nextInt();
                         sc.nextLine();   
+
+                        // Adds user selected films
                         if(intFilm < 6){
                             filmList.add(newNetflixList.getMovie(intFilm - 1).getName());  
                             objFilmList.add(newNetflixList.getMovie(intFilm - 1));  
@@ -128,11 +147,12 @@ public class Main {
                         }
                     }
                     break;
+
                 case "3":
                 System.out.println("Based on your list, here are some recommendations: ");
                 System.out.println();
 
-                // makes sure recommendations don't repeat
+                // Booleans used to make sure recommendations don't repeat
                 blnSuperHero = false;
                 blnCrime = false;
                 blnAdventure = false;
@@ -141,12 +161,15 @@ public class Main {
                 blnHorror = false;
                 blnSciFi = false;
 
-                    // adds genres from user list to genreList
+                    // Adds genres from user list to genreList
                     for(int i = 0; i < objFilmList.size(); i++){
                         genreList.add(objFilmList.get(i).getGenre());
                     }
 
+                    // Counter variable used to count number of recommended shows
                     intCounter = 1;
+
+                    // For loop used to check all genres of films in user list and assigns a recommendation
                     for(int i = 0; i < genreList.size(); i++){
                         if(genreList.get(i).contains("Superhero") && !blnSuperHero){
                             System.out.println(intCounter + ". Spider-Man: No Way Home");
@@ -196,6 +219,7 @@ public class Main {
                     System.out.println();
                     break;
                 case "4":
+                    // Exits the program
                     blnMenu = false;
             }
         }
