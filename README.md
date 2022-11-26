@@ -4,6 +4,6 @@
 [*see instructions for details*](Instructions.md)
 
 *Insert Class Diagram here*  
-C:\Users\brigh\Pictures\OOP Diagram.jpg
+
 ## Summary
 *Include a brief summary that describes your system that your are modelling*
