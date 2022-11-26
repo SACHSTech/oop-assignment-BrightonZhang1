@@ -4,6 +4,6 @@
 [*see instructions for details*](Instructions.md)
 
 *Insert Class Diagram here*  
-<img src = "C:\Users\brigh\github-classroom\SACHSTech\oop-assignment-BrightonZhang1\OOP Diagram.jpg">
+<img src = "OOP Diagram.jpg">
 ## Summary
 *Include a brief summary that describes your system that your are modelling*
